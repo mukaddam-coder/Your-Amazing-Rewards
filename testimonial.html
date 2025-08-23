@@ -1,0 +1,535 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Testimonials - SurveyRewards</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background-color: #f8f9fa;
+            color: #333;
+            line-height: 1.6;
+        }
+        
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        /* Header Styles */
+        header {
+            background: linear-gradient(135deg, #6a11cb 0%, #2575fc 100%);
+            color: white;
+            padding: 1rem 0;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+        
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 700;
+        }
+        
+        .nav-links {
+            display: flex;
+            list-style: none;
+        }
+        
+        .nav-links li {
+            margin-left: 2rem;
+        }
+        
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
+        
+        .nav-links a:hover {
+            color: #ffde59;
+        }
+        
+        /* Page Header */
+        .page-header {
+            text-align: center;
+            padding: 4rem 0;
+            background: linear-gradient(135deg, #6a11cb 0%, #2575fc 100%);
+            color: white;
+            margin-bottom: 3rem;
+        }
+        
+        .page-header h1 {
+            font-size: 2.8rem;
+            margin-bottom: 1rem;
+        }
+        
+        .page-header p {
+            font-size: 1.2rem;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+        
+        /* Testimonials Section */
+        .testimonials {
+            padding: 3rem 0 5rem;
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+        
+        .section-title h2 {
+            font-size: 2.5rem;
+            color: #6a11cb;
+            margin-bottom: 1rem;
+        }
+        
+        .section-title p {
+            color: #666;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+        
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-bottom: 4rem;
+        }
+        
+        .testimonial-card {
+            background: white;
+            border-radius: 10px;
+            padding: 2rem;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+            position: relative;
+        }
+        
+        .testimonial-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .quote-icon {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            font-size: 2.5rem;
+            color: #6a11cb;
+            opacity: 0.2;
+        }
+        
+        .testimonial-content {
+            margin-bottom: 1.5rem;
+            font-style: italic;
+            color: #555;
+            line-height: 1.8;
+        }
+        
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+        }
+        
+        .author-image {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            overflow: hidden;
+            margin-right: 1rem;
+            background: #ddd;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            color: #6a11cb;
+        }
+        
+        .author-details h4 {
+            color: #333;
+            margin-bottom: 0.2rem;
+        }
+        
+        .author-details p {
+            color: #6a11cb;
+            font-size: 0.9rem;
+        }
+        
+        .rating {
+            color: #ffde59;
+            margin-top: 0.5rem;
+        }
+        
+        /* Stats Section */
+        .stats {
+            background: linear-gradient(135deg, #6a11cb 0%, #2575fc 100%);
+            color: white;
+            padding: 4rem 0;
+            text-align: center;
+            border-radius: 10px;
+            margin-bottom: 4rem;
+        }
+        
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+        }
+        
+        .stat-item h3 {
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        .stat-item p {
+            font-size: 1.1rem;
+        }
+        
+        /* CTA Section */
+        .cta {
+            padding: 4rem 0;
+            background: #f1f3ff;
+            text-align: center;
+            border-radius: 10px;
+        }
+        
+        .cta h2 {
+            font-size: 2.2rem;
+            margin-bottom: 1.5rem;
+            color: #6a11cb;
+        }
+        
+        .cta p {
+            max-width: 700px;
+            margin: 0 auto 2rem;
+            font-size: 1.2rem;
+            color: #555;
+        }
+        
+        .btn {
+            display: inline-block;
+            background: #ffde59;
+            color: #333;
+            padding: 0.8rem 2rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+        }
+        
+        .btn:hover {
+            background: #ffc800;
+            transform: translateY(-3px);
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
+        }
+        
+        /* Footer */
+        footer {
+            background: #333;
+            color: white;
+            padding: 3rem 0 1rem;
+            margin-top: 5rem;
+        }
+        
+        .footer-content {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            margin-bottom: 2rem;
+        }
+        
+        .footer-section {
+            flex: 1;
+            min-width: 250px;
+            margin-bottom: 2rem;
+            padding: 0 1rem;
+        }
+        
+        .footer-section h3 {
+            margin-bottom: 1.5rem;
+            font-size: 1.3rem;
+        }
+        
+        .footer-bottom {
+            text-align: center;
+            padding-top: 2rem;
+            border-top: 1px solid #444;
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+            
+            .page-header h1 {
+                font-size: 2.2rem;
+            }
+            
+            .testimonials-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <nav>
+                <div class="logo">SurveyRewards</div>
+                <ul class="nav-links">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="#">How It Works</a></li>
+                    <li><a href="#">Rewards</a></li>
+                    <li><a href="#" style="color: #ffde59;">Testimonials</a></li>
+                    <li><a href="#">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Page Header -->
+    <section class="page-header">
+        <div class="container">
+            <h1>What Our Members Say</h1>
+            <p>Read real stories from our community members who are earning rewards by sharing their opinions</p>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="testimonials">
+        <div class="container">
+            <div class="section-title">
+                <h2>Member Testimonials</h2>
+                <p>Discover why thousands of people choose SurveyRewards to share their opinions and earn rewards</p>
+            </div>
+            
+            <div class="testimonials-grid">
+                <div class="testimonial-card">
+                    <div class="quote-icon">
+                        <i class="fas fa-quote-right"></i>
+                    </div>
+                    <div class="testimonial-content">
+                        <p>I've been using SurveyRewards for 6 months now and have already earned IDR 68,000. The surveys are interesting and the redemption process is quick and easy. Highly recommend!</p>
+                    </div>
+                    <div class="testimonial-author">
+                        <div class="author-image">
+                            <i class="fas fa-user"></i>
+                        </div>
+                        <div class="author-details">
+                            <h4>Palesa</h4>
+                            <p>Teacher, Gaborone</p>
+                            <div class="rating">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="testimonial-card">
+                    <div class="quote-icon">
+                        <i class="fas fa-quote-right"></i>
+                    </div>
+                    <div class="testimonial-content">
+                        <p>As a college student, SurveyRewards has been a game-changer for me. I can complete surveys between classes and the extra cash helps with my expenses. The mobile app is super convenient!</p>
+                    </div>
+                    <div class="testimonial-author">
+                        <div class="author-image">
+                            <i class="fas fa-user"></i>
+                        </div>
+                        <div class="author-details">
+                            <h4>Kagiso</h4>
+                            <p>Student, Francistown</p>
+                            <div class="rating">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star-half-alt"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="testimonial-card">
+                    <div class="quote-icon">
+                        <i class="fas fa-quote-right"></i>
+                    </div>
+                    <div class="testimonial-content">
+                        <p>I've tried several survey sites, but SurveyRewards offers the best rewards and highest payout rates. I love that I can choose between cash or gift cards. The customer support is also excellent.</p>
+                    </div>
+                    <div class="testimonial-author">
+                        <div class="author-image">
+                            <i class="fas fa-user"></i>
+                        </div>
+                        <div class="author-details">
+                            <h4>Thabo</h4>
+                            <p>Retired, Serowe</p>
+                            <div class="rating">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="testimonial-card">
+                    <div class="quote-icon">
+                        <i class="fas fa-quote-right"></i>
+                    </div>
+                    <div class="testimonial-content">
+                        <p>SurveyRewards has been a great way for me to make some extra money while staying home with my kids. The surveys are engaging and I feel like my opinions actually make a difference.</p>
+                    </div>
+                    <div class="testimonial-author">
+                        <div class="author-image">
+                            <i class="fas fa-user"></i>
+                        </div>
+                        <div class="author-details">
+                            <h4>Keitumetse</h4>
+                            <p>Stay-at-home mom, Kanye</p>
+                            <div class="rating">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="testimonial-card">
+                    <div class="quote-icon">
+                        <i class="fas fa-quote-right"></i>
+                    </div>
+                    <div class="testimonial-content">
+                        <p>The variety of surveys on SurveyRewards is impressive. I never get bored because there's always something new. I've redeemed multiple Amazon gift cards already - it's like getting paid to shop!</p>
+                    </div>
+                    <div class="testimonial-author">
+                        <div class="author-image">
+                            <i class="fas fa-user"></i>
+                        </div>
+                        <div class="author-details">
+                            <h4>Naledi</h4>
+                            <p>Freelancer, Mochudi</p>
+                            <div class="rating">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="testimonial-card">
+                    <div class="quote-icon">
+                        <i class="fas fa-quote-right"></i>
+                    </div>
+                    <div class="testimonial-content">
+                        <p>I was skeptical at first, but SurveyRewards has proven to be legitimate and rewarding. I appreciate that they don't spam my inbox and the surveys are well-designed. It's become my favorite side hustle.</p>
+                    </div>
+                    <div class="testimonial-author">
+                        <div class="author-image">
+                            <i class="fas fa-user"></i>
+                        </div>
+                        <div class="author-details">
+                            <h4>Dikgang</h4>
+                            <p>Engineer, Maun</p>
+                            <div class="rating">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star-half-alt"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="stats">
+                <div class="stats-grid">
+                    <div class="stat-item">
+                        <h3>50,000+</h3>
+                        <p>Happy Members</p>
+                    </div>
+                    <div class="stat-item">
+                        <h3>$2.5M+</h3>
+                        <p>Rewards Paid</p>
+                    </div>
+                    <div class="stat-item">
+                        <h3>98%</h3>
+                        <p>Satisfaction Rate</p>
+                    </div>
+                    <div class="stat-item">
+                        <h3>24h</h3>
+                        <p>Average Payout Time</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="cta">
+                <h2>Ready to share your opinion and earn rewards?</h2>
+                <p>Join our community of satisfied members and start earning today</p>
+                <a href="https://doctoredits.com/show.php?l=0&u=2394761&id=65353&tracking_id=${SUBID}" class="btn">Sign Up Now</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>SurveyRewards</h3>
+                    <p>We connect businesses with consumers to help improve products and services through valuable feedback.</p>
+                </div>
+                <div class="footer-section">
+                    <h3>Quick Links</h3>
+                    <p><a href="#" style="color: #fff;">Home</a></p>
+                    <p><a href="#" style="color: #fff;">About Us</a></p>
+                    <p><a href="#" style="color: #fff;">Privacy Policy</a></p>
+                    <p><a href="#" style="color: #fff;">Terms of Service</a></p>
+                </div>
+                <div class="footer-section">
+                    <h3>Contact Us</h3>
+                    <p>Email: support@surveyrewards.com</p>
+                    <p>Phone: +1 (800) 918-2269</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2023 SurveyRewards. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
